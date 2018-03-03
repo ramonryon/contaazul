@@ -1,0 +1,28 @@
+*{
+  border: none;
+  outline: none; 
+  padding: 0;
+  margin: 0;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: lighter;
+  color: #fff;
+}
+body {
+    background: #333;
+}
+button{
+    cursor: pointer;
+}
+
+.video{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+hr{
+    color: #fff;
+    background-color: #fff;
+    height: 2px;
+}
