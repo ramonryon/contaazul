@@ -3,14 +3,14 @@ require 'environment.php';
 
 $config = array();
 if(ENVIRONMENT == 'development') {
-	define("BASE_URL", "http://localhost/mvc_padrao/");
-	$config['dbname'] = 'mvc_padrao';
+	define("BASE_URL", "http://localhost/contaazul/");
+	$config['dbname'] = 'contaazul';
 	$config['host'] = 'localhost';
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
 } else {
 	define("BASE_URL", "http://meusite.com.br/");
-	$config['dbname'] = 'mvc_padrao';
+	$config['dbname'] = 'contaazul';
 	$config['host'] = 'localhost';
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';

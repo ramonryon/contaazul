@@ -3,26 +3,9 @@
   outline: none; 
   padding: 0;
   margin: 0;
-  font-family: 'PT Sans Narrow', sans-serif;
-  font-weight: lighter;
-  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  color: #000;
 }
 body {
-    background: #333;
-}
-button{
-    cursor: pointer;
-}
-
-.video{
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
-hr{
-    color: #fff;
-    background-color: #fff;
-    height: 2px;
+    background: #fff;
 }
