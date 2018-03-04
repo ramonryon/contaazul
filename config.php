@@ -9,11 +9,11 @@ if(ENVIRONMENT == 'development') {
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
 } else {
-	define("BASE_URL", "http://meusite.com.br/");
-	$config['dbname'] = 'contaazul';
-	$config['host'] = 'localhost';
-	$config['dbuser'] = 'root';
-	$config['dbpass'] = '';
+	define("BASE_URL", "https://ramonryon.tk/contaazul/");
+	$config['dbname'] = 'contaazul123';
+	$config['host'] = 'mysql552.umbler.com';
+	$config['dbuser'] = 'alpherys-ca';
+	$config['dbpass'] = 'destreza';
 }
 
 global $db;
