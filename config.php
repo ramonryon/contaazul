@@ -12,8 +12,8 @@ if(ENVIRONMENT == 'development') {
 	define("BASE_URL", "https://ramonryon.tk/contaazul/");
 	$config['dbname'] = 'contaazul123';
 	$config['host'] = 'mysql552.umbler.com';
-	$config['dbuser'] = 'alpherys-ca';
-	$config['dbpass'] = 'destreza';
+	$config['dbuser'] = 'root';
+	$config['dbpass'] = '';
 }
 
 global $db;
