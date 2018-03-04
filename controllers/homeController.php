@@ -2,9 +2,15 @@
 class homeController extends controller {
 
 	public function index() {
-		$dados = array();
+		$data = array();
 
-		$this->loadTemplate('home', $dados);
+		$u = new Users();
+
+		if($u->isLogged() == false){
+			header("Location: ".BASE_URL."login");
+		}
+
+		$this->loadTemplate('home', $data);
 
 	}
 
