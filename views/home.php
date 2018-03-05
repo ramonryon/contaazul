@@ -1,1 +1,1 @@
-<?php echo $company_name; ?>
+HOME

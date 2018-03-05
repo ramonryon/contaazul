@@ -37,3 +37,37 @@
 	color: white;
 	text-decoration: none;
 }
+.top_right a:hover{
+	color: #3f4c6b;
+	opacity: 1;
+}
+.top_right i{
+	margin-right: 5px;
+}
+.menuarea{
+	color: white;
+}
+.menuarea ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.menuarea li{
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #606c88;
+	font-size: 14px;
+	padding-left: 30px;
+}
+.menuarea li i{
+	margin-right: 10px;
+}
+.menuarea li:hover{
+	background: #000;
+	opacity: 0.7;
+}
+.menuarea li a{
+	color: white;
+	text-decoration: none;
+	display: block;
+}
