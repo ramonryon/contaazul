@@ -1,0 +1,39 @@
+.leftmenu{
+	width: 200px;
+	background-color: #3f4c6b;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+}
+.company_name{
+	height: 100px;
+	font-size: 18px;
+	color: white;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+.conteudo{
+	padding-left: 200px;
+}
+.top{
+	height: 40px;
+	background-color: #606c88;
+	color: white;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+}
+.top_right{
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.top_right a{
+	color: white;
+	text-decoration: none;
+}
