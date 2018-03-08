@@ -23,10 +23,11 @@ class loginController extends controller{
 	}
 
 	public function logout(){
+		
 		$u = new Users();
 		$u->logout();
-
 		header("Location: ".BASE_URL);
+		
 	}
 
 }

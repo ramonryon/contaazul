@@ -3,6 +3,7 @@
 class Users extends model{
 
 	private $userInfo;
+	private $permissions;
 
 	public function isLogged(){
 
@@ -42,6 +43,8 @@ class Users extends model{
 
 			if($sql->rowCount() > 0){
 				$this->userInfo = $sql->fetch();
+				$this->permissions = new Permissions();
+				$this->permissions->setGroup($this->userInfo['id_group'], $this->userInfo['id_company']);
 			}
 
 		}
@@ -50,6 +53,10 @@ class Users extends model{
 
 	public function logout(){
 		unset($_SESSION['ccUser']);
+	}
+
+	public function hasPermission($name){
+		return $this->permissions->hasPermission($name);
 	}
 
 	public function getCompany(){
@@ -68,6 +75,46 @@ class Users extends model{
 			return '';
 		}
 	}
+
+	public function findUsersInGroup($id){
+
+		$sql = $this->db->prepare("SELECT COUNT(*) as c FROM users WHERE id_group = :id_group");
+		$sql->bindValue(":id_group", $id);
+		$sql->execute();
+		$row = $sql->fetch();
+
+		if($row['c'] == '0'){
+			return false;
+		}else{
+			return true;
+		}
+	}
+
+	public function getList($id_company){
+		$array = array();
+
+		$sql = $this->db->prepare("SELECT users.id, users.email, permission_groups.name FROM users LEFT JOIN permission_groups ON permission_groups.id = users.id_group WHERE users.id_company = :id_company");
+		$sql->bindValue(":id_company", $id_company);
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			$array = $sql->fetchAll();
+		}
+
+		return $array;
+	}
+
+	public function add($email, $password, $id_group, $id_company){
+
+		$sql = $this->db->prepare("INSERT INTO users SET email = :email, password = :password, id_group = :id_group, id_company = :id_company");
+		$sql->bindValue(':email', $email);
+		$sql->bindValue(':password', md5($password));
+		$sql->bindValue(':id_group', $id_group);
+		$sql->bindValue(':id_company', $id_company);
+		$sql->execute();
+
+	}	
+
 }
 
 ?>

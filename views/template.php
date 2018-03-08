@@ -23,16 +23,17 @@
 			<ul>
 				<li><a href="<?php echo BASE_URL; ?>"><i class="fas fa-home"></i>Home</a></li>
 				<li><a href="<?php echo BASE_URL; ?>permissions"><i class="fas fa-key"></i>Permissões</a></li>
+				<li><a href="<?php echo BASE_URL; ?>users"><i class="fas fa-users"></i>Usuários</a></li>
 			</ul>
 		</div>
 	</div>
 	<div class="conteudo">
 		<div class="top">
 			<div class="top_right">
-				<a href="<?php echo BASE_URL.'login/logout'; ?>"><i class="fas fa-sign-out-alt"></i>Sair</a>
+				<?php echo $viewData['user_email']; ?>
 			</div>
 			<div class="top_right">
-				<?php echo $viewData['user_email']; ?>
+				<a href="<?php echo BASE_URL.'login/logout'; ?>"><i class="fas fa-sign-out-alt"></i>Sair</a>
 			</div>
 		</div>
 		<div class="area">
@@ -40,7 +41,9 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/tether.min.js"></script>
 	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/bootbox.min.js"></script>
 	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/script.js"></script>
 </body>
 

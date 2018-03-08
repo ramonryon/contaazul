@@ -1,3 +1,12 @@
+i{
+	margin-right: 8px;
+}
+th{
+	text-align: center;
+}
+button{
+	cursor: pointer;
+}
 .leftmenu{
 	width: 200px;
 	background-color: #3f4c6b;
@@ -41,9 +50,7 @@
 	color: #3f4c6b;
 	opacity: 1;
 }
-.top_right i{
-	margin-right: 5px;
-}
+
 .menuarea{
 	color: white;
 }
@@ -55,13 +62,11 @@
 .menuarea li{
 	height: 40px;
 	line-height: 40px;
-	border-bottom: 1px solid #606c88;
+	border-bottom: 1px solid #606c88; 
 	font-size: 14px;
 	padding-left: 30px;
 }
-.menuarea li i{
-	margin-right: 10px;
-}
+
 .menuarea li:hover{
 	background: #000;
 	opacity: 0.7;
@@ -70,4 +75,53 @@
 	color: white;
 	text-decoration: none;
 	display: block;
+}
+.area{
+	padding: 15px;
+}
+
+.tabitem{
+	float: left;
+	width: 50%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-bottom: 1px solid #000;
+	background-color: #eee;
+	cursor: pointer;
+}
+.activetab{
+	border-bottom: 1px solid #fff;
+	background-color: #fff;
+}
+.tabbody{
+	display: none;
+}
+.btn-add{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+tbody i{
+	margin-right: 0;
+}
+table{
+	border: 2px solid #fff;
+}
+table th{
+	height: 40px;
+	line-height: 40px;
+	background-color: #ddd;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+table td{
+	height: 40px;
+	line-height: 40px;
+	background-color: #eee;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.bootbox-body{
+	font-size: 18px;
+	font-weight: bold;
 }
