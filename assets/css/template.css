@@ -45,10 +45,10 @@ button{
 .top_right a{
 	color: white;
 	text-decoration: none;
+	opacity: 1
 }
 .top_right a:hover{
-	color: #3f4c6b;
-	opacity: 1;
+	opacity: 0.8;
 }
 
 .menuarea{
@@ -121,7 +121,15 @@ table td{
 	padding-left: 10px;
 	padding-right: 10px;
 }
-.bootbox-body{
+.modal-body{
 	font-size: 18px;
 	font-weight: bold;
+}
+.modal-body .buttons{
+	display: flex;
+	justify-content: flex-end;
+}
+.modal-body button{
+	margin-left: 15px;
+	margin-top: 15px;
 }

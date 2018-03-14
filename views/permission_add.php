@@ -4,7 +4,7 @@
 	
 	<div class="form-group row col-3">
 		<label for="name">Nome da Permissão:</label>
-		<input type="text" name="name" class="form-control" id="name" placeholder="Nome da Permissão">
+		<input type="text" name="name" class="form-control" id="name" placeholder="Nome da Permissão" required>
 	</div>
 
 	<button type="submit" class="btn btn-success">Adicionar</button>

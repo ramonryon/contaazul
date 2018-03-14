@@ -43,10 +43,16 @@ class usersController extends Controller{
 			if(isset($_POST['email']) && !empty($_POST['email'])){
 				$email = addslashes($_POST['email']);
 				$pass = addslashes($_POST['password']);
-				$group = $_POST['group'];
+				$group = addslashes($_POST['group']);
 
-				$u->add($email, $pass, $group, $u->getCompany());
-				header("Location: ".BASE_URL."users");
+				$a = $u->add($email, $pass, $group, $u->getCompany());
+
+				if($a == '1'){
+					header("Location: ".BASE_URL."users");
+				}else{
+					$data['error_msg'] = "Usuário já existe!";
+				}
+				
 			}
 
 			$data['group_list'] = $p->getGroupList($u->getCompany());
@@ -58,6 +64,53 @@ class usersController extends Controller{
 
 	}
 
+	public function edit($id){
+		$data = array();
+		$u = new Users();
+		$u->setLoggedUser();
+		$company = new Companies($u->getCompany());
+		$data['company_name'] = $company->getName();
+		$data['user_email'] = $u->getEmail();
+
+		if($u->hasPermission('users_view')){
+			$p = new Permissions();
+
+			if(isset($_POST['group']) && !empty($_POST['group'])){
+				$pass = addslashes($_POST['password']);
+				$group = addslashes($_POST['group']);
+
+				$a = $u->edit($pass, $group, $id, $u->getCompany());
+
+				header("Location: ".BASE_URL."users");
+				
+			}
+
+			$data['user_info'] = $u->getInfo($id, $u->getCompany());
+			$data['group_list'] = $p->getGroupList($u->getCompany());
+
+			$this->loadTemplate('users_edit', $data);
+		}else{
+			header("Location: ".BASE_URL);
+		}
+	}
+
+	public function delete($id){
+		$data = array();
+		$u = new Users();
+		$u->setLoggedUser();
+		$company = new Companies($u->getCompany());
+		$data['company_name'] = $company->getName();
+		$data['user_email'] = $u->getEmail();
+
+		if($u->hasPermission('users_view')){
+			$p = new Permissions();
+
+			$u->delete($id, $u->getCompany());
+			header("Location: ".BASE_URL."users");
+		}else{
+			header("Location: ".BASE_URL);
+		}
+	}
 
 }
 

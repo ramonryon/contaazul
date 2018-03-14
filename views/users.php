@@ -22,12 +22,20 @@
 					<a class="btn btn-warning btn-sm" href="<?php echo BASE_URL; ?>users/edit/<?php echo $us['id']; ?>">
 						<i class="fas fa-pencil-alt"></i>
 					</a>
-					<a class="btn btn-danger btn-sm" onclick="confirm('Tem certeza que deseja deletar?')" href="<?php echo BASE_URL; ?>users/delete/<?php echo $us['id']; ?>">
+					<a class="btn btn-danger btn-sm" onclick="excluirUs('<?php echo $us['id']; ?>')" href="javascript:;">
 						<i class="far fa-trash-alt"></i>
 					</a>
 				</td>
 			</tr>
 		<?php endforeach; ?>
 	</tbody>
-
 </table>
+<div class="modal fade" id="modal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				...
+			</div>
+		</div>
+	</div>
+</div>

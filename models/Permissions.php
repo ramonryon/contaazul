@@ -78,7 +78,7 @@ class Permissions extends model{
 
 		$sql = $this->db->prepare("SELECT * FROM permission_groups WHERE id = :id AND id_company = :id_company");
 		$sql->bindValue(":id", $id);
-		$sql->bindValue(":id_company", $id);
+		$sql->bindValue(":id_company", $id_company);
 		$sql->execute();
 
 		if($sql->rowCount() > 0){

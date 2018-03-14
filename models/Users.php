@@ -76,6 +76,21 @@ class Users extends model{
 		}
 	}
 
+	public function getInfo($id, $id_company){
+		$array = array();
+
+		$sql = $this->db->prepare("SELECT * FROM users WHERE id = :id AND id_company = :id_company");
+		$sql->bindValue(':id', $id);
+		$sql->bindValue(':id_company', $id_company);
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			$array = $sql->fetch();
+		}
+
+		return $array;
+	}
+
 	public function findUsersInGroup($id){
 
 		$sql = $this->db->prepare("SELECT COUNT(*) as c FROM users WHERE id_group = :id_group");
@@ -106,10 +121,47 @@ class Users extends model{
 
 	public function add($email, $password, $id_group, $id_company){
 
-		$sql = $this->db->prepare("INSERT INTO users SET email = :email, password = :password, id_group = :id_group, id_company = :id_company");
+		$sql = $this->db->prepare("SELECT COUNT(*) as c FROM users WHERE email = :email");
 		$sql->bindValue(':email', $email);
-		$sql->bindValue(':password', md5($password));
+		$sql->execute();
+		$row = $sql->fetch();
+
+		if($row['c'] == '0'){
+
+			$sql = $this->db->prepare("INSERT INTO users SET email = :email, password = :password, id_group = :id_group, id_company = :id_company");
+			$sql->bindValue(':email', $email);
+			$sql->bindValue(':password', md5($password));
+			$sql->bindValue(':id_group', $id_group);
+			$sql->bindValue('id_company', $id_company);
+			$sql->execute();
+
+			return '1';
+		}else{
+			return '0';
+		}
+
+	}
+
+	public function edit($password, $id_group, $id, $id_company){
+		$sql = $this->db->prepare("UPDATE users SET id_group = :id_group WHERE id = :id AND id_company = :id_company");
 		$sql->bindValue(':id_group', $id_group);
+		$sql->bindValue(':id', $id);
+		$sql->bindValue(':id_company', $id_company);
+		$sql->execute();
+
+		if(!empty($password)){
+			$sql = $this->db->prepare("UPDATE users SET password = :password WHERE id = :id AND id_company = :id_company");
+			$sql->bindValue(':password', md5($password));
+			$sql->bindValue(':id', $id);
+			$sql->bindValue(':id_company', $id_company);
+			$sql->execute();
+
+		}
+	}
+
+	public function delete($id, $id_company){
+		$sql = $this->db->prepare("DELETE FROM users WHERE id = :id AND id_company = :id_company");
+		$sql->bindValue(':id', $id);
 		$sql->bindValue(':id_company', $id_company);
 		$sql->execute();
 

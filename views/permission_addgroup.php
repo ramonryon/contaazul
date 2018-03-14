@@ -4,7 +4,7 @@
 	
 	<div class="form-group row col-4">
 		<label for="name">Nome do Grupo de Permissões:</label>
-		<input type="text" name="name" class="form-control" id="name" placeholder="Nome do Grupo de Permissões">
+		<input type="text" name="name" class="form-control" id="name" placeholder="Nome do Grupo de Permissões" required>
 	</div>
 
 		<label for="name">Permissões:</label>
