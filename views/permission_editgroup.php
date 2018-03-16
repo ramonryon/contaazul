@@ -3,11 +3,11 @@
 <form method="POST">
 
 	<div class="form-group row col-4">
-		<label for="name">Nome do Grupo de Permissões:</label>
+		<label for="name"><strong>Nome do Grupo de Permissões:</strong></label>
 		<input type="text" name="name" value="<?php echo $group_info['name']; ?>" class="form-control" id="name" placeholder="Nome do Grupo de Permissões" required>
 	</div>
 
-	<label for="name">Permissões:</label>
+	<label for="name"><strong>Permissões:</strong></label>
 	<?php foreach($permissions_list as $p): ?>
 		<div class="form-check">
 			<label class="form-check-label">

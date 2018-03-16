@@ -3,7 +3,7 @@
 <form method="POST">
 	
 	<div class="form-group row col-3">
-		<label for="name">Nome da Permissão:</label>
+		<label for="name"><strong>Nome da Permissão:</strong></label>
 		<input type="text" name="name" class="form-control" id="name" placeholder="Nome da Permissão" required>
 	</div>
 

@@ -10,26 +10,42 @@ $(function(){
 		$('.tabbody').eq(item).show();
 	});
 
-	$('.btn-delete').on('click', function(event){
-		event.preventDefault();
-		bootbox.confirm({
-			message: "Tem certeza que deseja excluir?",
-			buttons: {
-				confirm: {
-					label: 'Sim',
-					className: 'btn-success'
-				},
-				cancel: {
-					label: 'Não',
-					className: 'btn-danger'
+
+	$('#busca').on('blur', function(){
+		setTimeout(function(){
+			$('.searchresults').hide();
+		}, 400);
+		
+	});
+
+
+	$('#busca').on('keyup', function(){
+		var datatype = $(this).attr('data-type');
+		var q = $(this).val();
+
+		if(datatype != ''){
+			$.ajax({
+				url:BASE_URL+'ajax/'+datatype,
+				type:'GET',
+				data:{q:q},
+				dataType:'json',
+				success:function(json){
+					if( $('.searchresults').length == 0){
+						$('#busca').after('<div class="searchresults"></div>');
+					}
+
+					var html = '';
+
+					for(var i in json){
+						html += '<div class="si"><a href="'+json[i].link+'">'+json[i].name+'</a></div>';
+					}
+
+					$('.searchresults').html(html);
+					$('.searchresults').show();
 				}
-			},
-			callback: function (result) {
-				if(result){
-					window.location= $('.btn-delete').attr('href');
-				}
-			}
-		});
+			});
+		}
+
 	});
 
 });

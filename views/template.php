@@ -11,6 +11,12 @@
 	<link type="text/css" rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css" media="screen,projection" />
 	<link type="text/css" rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/template.css" media="screen,projection" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script type="text/javascript">var BASE_URL = '<?php echo BASE_URL; ?>';</script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/tether.min.js"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/jquery.mask.js"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/script.js"></script>
 </head>
 
 <body>
@@ -24,6 +30,8 @@
 				<li><a href="<?php echo BASE_URL; ?>"><i class="fas fa-home"></i>Home</a></li>
 				<li><a href="<?php echo BASE_URL; ?>permissions"><i class="fas fa-key"></i>Permissões</a></li>
 				<li><a href="<?php echo BASE_URL; ?>users"><i class="fas fa-users"></i>Usuários</a></li>
+				<li><a href="<?php echo BASE_URL; ?>clients"><i class="fas fa-user-circle"></i></i>Clientes</a></li>
+				<li><a href="<?php echo BASE_URL; ?>inventory"><i class="fas fa-box"></i>Estoque</a></li>
 			</ul>
 		</div>
 	</div>
@@ -40,12 +48,7 @@
 			<?php $this->loadViewInTemplate($viewName, $viewData) ?>
 		</div>
 	</div>
-	<script type="text/javascript">var BASE_URL = '<?php echo BASE_URL; ?>';</script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/tether.min.js"></script>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/bootbox.min.js"></script>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/script.js"></script>
+	
 </body>
 
 </html>
